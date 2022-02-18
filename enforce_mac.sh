@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-# enforceMac.sh  Author: Oaker Min (brootware)
+# enforce_mac.sh  Author: Oaker Min (brootware)
 # git clone https://github.com/brootware/privacy-sexy-lite.git
-# Usage: sudo ./enforceMac.sh  ( defaults to the menu system )
+# Usage: sudo ./enforce_mac.sh  ( defaults to the menu system )
 # command line arguments are valid, only catching 1 arguement
 #
 # Full Revision history can be found in changelog.txt
