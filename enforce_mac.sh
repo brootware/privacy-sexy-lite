@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # enforceMac.sh  Author: Oaker Min (brootware)
-# git clone <to be added>
+# git clone https://github.com/brootware/privacy-sexy-lite.git
 # Usage: sudo ./enforceMac.sh  ( defaults to the menu system )
 # command line arguments are valid, only catching 1 arguement
 #
@@ -804,7 +804,7 @@ mac_menu() {
 mac_help() {
     # do not edit this echo statement, spacing has been fixed and is correct for display in the terminal
     echo -e "\n valid command line arguements are : \n \n --harden        run all security and privacy enforcements \n" \
-        "--revert        revert all enforcements \n --nuke         remove all your bash history,os log and reset privacy settings" \
+        "--revert        revert all enforcements \n --cleanup         remove all your bash history,os log and reset privacy settings" \
         exit
 }
 
@@ -817,7 +817,7 @@ check_arg() {
         --help) mac_help ;;
         --harden) harden_mac ;;
         --revert) revert_hardening ;;
-        --nuke) privacy_cleanup ;;
+        --cleanup) privacy_cleanup ;;
         *)
             mac_help
             exit 0
