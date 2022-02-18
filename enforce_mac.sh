@@ -755,13 +755,13 @@ revert_configure_mac_privacy() {
 }
 
 harden_mac() {
-    configure_mac_privacy $force
-    secure_mac $force
+    configure_mac_privacy
+    secure_mac
 }
 
 revert_hardening() {
-    revert_configure_mac_privacy $force
-    revert_secure_mac $force
+    revert_configure_mac_privacy
+    revert_secure_mac
 }
 
 # asciiart DO NOT MOVE
