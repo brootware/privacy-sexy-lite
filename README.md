@@ -1,6 +1,6 @@
 # Privacy-sexy-lite
 
-A lite CLI version of Open-source tool to enforce privacy &amp; security best-practices on Windows(Currently in development) and macOS, originally by undergroundwires 🍑 🍆
+A lite CLI version of Open-source tool to enforce privacy & security best-practices on Windows and macOS. Originally a web app by [undergroundwires](https://github.com/undergroundwires). 🍑 🍆
 
 This tool is customized from original site [privacy.sexy](https://privacy.sexy) to fit my privacy and security needs on my macbook.
 

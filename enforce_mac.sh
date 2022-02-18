@@ -5,7 +5,6 @@
 # Usage: sudo ./enforce_mac.sh  ( defaults to the menu system )
 # command line arguments are valid, only catching 1 arguement
 #
-# Full Revision history can be found in changelog.txt
 # Standard Disclaimer: Author assumes no liability for any damage done on your machine
 
 # revision var
