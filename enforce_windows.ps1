@@ -1,4 +1,4 @@
-#TODO
+#Requires -RunAsAdministrator
 #
 # enforce_windows.ps1  Author: Oaker Min (brootware)
 # git clone https://github.com/brootware/privacy-sexy-lite.git
@@ -9,6 +9,19 @@
 
 # revision var
 $revision = "0.0.1"
+
+# TODO, Add argument based help
+
+# function check_for_admin {
+#     # Check to make sure script is run as administrator
+#     Write-Host "[+] Checking if script is running as administrator.."
+#     $currentPrincipal = New-Object Security.Principal.WindowsPrincipal( [Security.Principal.WindowsIdentity]::GetCurrent() )
+#     if (-Not $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
+#         Write-Host "[ERR] Please run this script as administrator`n" -ForegroundColor Red
+#         Read-Host  "Press any key to continue"
+#         exit
+#     }
+# }
 
 # asciiart DO NOT MOVE
 $asciiart = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("X19fX19fX19fXyAgICAgICAgLl9fICAgICAgICAgICAgICAgICAgICAgICAgICAgICBfX19fX19fX18gICAgICAgICAgICAgICAgICAgICAKXF9fX19fXyAgIFxfX19fX19ffF9ffF9fICBfX19fX19fICAgIF9fX18gX19fLl9fLi8gICBfX19fXy8gX19fXyBfX18gIF9fX19fXy5fXy4KIHwgICAgIF9fXy9cXyAgX18gXCAgXCAgXC8gL1xfXyAgXCBfLyBfX188ICAgfCAgfFxfX19fXyAgXF8vIF9fIFxcICBcLyAgPCAgIHwgIHwKIHwgICAgfCAgICAgfCAgfCBcLyAgfFwgICAvICAvIF9fIFxcICBcX19fXF9fXyAgfC8gICAgICAgIFwgIF9fXy8gPiAgICA8IFxfX18gIHwKIHxfX19ffCAgICAgfF9ffCAgfF9ffCBcXy8gIChfX19fICAvXF9fXyAgPiBfX19fL19fX19fX18gIC9cX19fICA+X18vXF8gXC8gX19fX3wKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXC8gICAgIFwvXC8gICAgICAgICAgICBcLyAgICAgXC8gICAgICBcL1wvICAgICAKCiAgICAgICAgICAgICAgICAgICAgKy0rLSstKy0rLSstKy0rICstKy0rICstKy0rLSstKy0rLSstKy0rCiAgICAgICAgICAgICAgICAgICAgfHB8b3x3fGV8cnxlfGR8IHxifHl8IHxyfG98b3x0fHd8YXxyfGV8CiAgICAgICAgICAgICAgICAgICAgKy0rLSstKy0rLSstKy0rICstKy0rICstKy0rLSstKy0rLSstKy0r"))
@@ -40,14 +53,50 @@ function win_menu {
         } 3 {
             'You chose option #3'
         } q {
-            Write-Host "`n`n Exiting enforce_mac.sh - Happy computing! `n"
+            Write-Host "`n`n Exiting enforce_windows.ps1 - Happy computing! `n"
             exit_screen
             return
-        } * {
+        } Default {
             win_menu
         }
     }
-    pause
 }
 
-win_menu
+function win_help {
+    Write-Host "`n valid command line arguements are : `n `n --harden        run all security and privacy enforcements `n" `
+        "--revert        revert all enforcements `n --cleanup         remove all your bash history,os log and reset privacy settings" `
+        return
+}
+
+function check_arg {
+    if ("$1" -eq "") {
+        win_menu
+    }
+    else {
+        switch ($1) {
+            --menu {
+                win_menu
+            }
+            --help {
+                win_help
+            }
+            --harden {
+                # harden_win
+                "This function has not been written yet"
+            }
+            --revert {
+                # revert_hardening
+                "This function has not been written yet"
+            }
+            --cleanup {
+                # privacy_cleanup
+                "This function has not been written yet"
+            }
+            Default {
+                win_help
+            }
+        }
+    }
+}
+
+check_arg "$1"
