@@ -11,6 +11,11 @@
 $revision = "0.0.1"
 
 # TODO, Add argument based help
+param (
+    [string]$menu = "http://defaultserver",
+    [Parameter(Mandatory = $true)][string]$username,
+    [string]$password = $( Read-Host "Input password, please" )
+)
 
 # function check_for_admin {
 #     # Check to make sure script is run as administrator
