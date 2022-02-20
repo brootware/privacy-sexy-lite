@@ -798,7 +798,7 @@ mac_menu() {
 mac_help() {
     # do not edit this echo statement, spacing has been fixed and is correct for display in the terminal
     echo -e "\n valid command line arguements are : \n \n --harden        run all security and privacy enforcements \n" \
-        "--revert        revert all enforcements \n --cleanup         remove all your bash history,os log and reset privacy settings" \
+        "--revert        revert all enforcements \n --cleanup       remove all your bash history,os log and reset privacy settings" \
         exit
 }
 

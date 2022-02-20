@@ -32,6 +32,8 @@ TOKEN/
 api/
 API/
 
+test*
+
 # Python Template
 
 # Byte-compiled / optimized / DLL files

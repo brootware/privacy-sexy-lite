@@ -7,12 +7,12 @@
 #
 # Standard Disclaimer: Author assumes no liability for any damage done on your machine
 
-# revision var
-$revision = "0.0.1"
-
 param (
     [string]$choice
 )
+
+# revision var
+$revision = "0.0.1"
 
 # function check_for_admin {
 #     # Check to make sure script is run as administrator
@@ -66,39 +66,36 @@ function win_menu {
 
 function win_help {
     Write-Host "`n valid command line arguements are : `n `n harden        run all security and privacy enforcements `n" `
-        "revert        revert all enforcements `n cleanup         remove all your bash history,os log and reset privacy settings" `
+        "revert        revert all enforcements `n cleanup       remove all your bash history,os log and reset privacy settings" `
         return
 }
 
-function check_arg {
-    if ("$choice" -eq "") {
-        win_menu
-    }
-    else {
-        switch ($choice) {
-            "menu" {
-                win_menu
-            }
-            "help" {
-                win_help
-            }
-            "harden" {
-                # harden_win
-                "This function has not been written yet"
-            }
-            "revert" {
-                # revert_hardening
-                "This function has not been written yet"
-            }
-            "cleanup" {
-                # privacy_cleanup
-                "This function has not been written yet"
-            }
-            Default {
-                win_help
-            }
+
+if ($choice -eq "") {
+    win_menu
+}
+else {
+    switch ($choice) {
+        "menu" {
+            win_menu
+        }
+        "help" {
+            win_help
+        }
+        "harden" {
+            # harden_win
+            "This function has not been written yet"
+        }
+        "revert" {
+            # revert_hardening
+            "This function has not been written yet"
+        }
+        "cleanup" {
+            # privacy_cleanup
+            "This function has not been written yet"
+        }
+        Default {
+            win_help
         }
     }
 }
-
-check_arg "$choice"
