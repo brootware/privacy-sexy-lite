@@ -17,6 +17,8 @@ A lite CLI version of Open-source tool to enforce privacy & security best-practi
 
 This tool is customized from original site [privacy.sexy](https://privacy.sexy) to fit privacy and security needs for my mac and windows VMs.
 
+> Standard Disclaimer: Author assumes no liability for any damage done on your machines.
+
 ## How to use for Mac
 
 ```bash
