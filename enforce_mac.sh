@@ -785,7 +785,7 @@ mac_menu() {
     echo "  3 - Secure your mac             Secure all the unused services on mac "                                                   # secure_mac
     echo "  4 - Revert security configs     Revert all the security configs on mac"                                                   # revert_secure_mac
     echo -e "  5 - Privacy cleanup             WARNING!!! This will remove all your bash history,os log and reset privacy settings\n" # privacy_cleanup
-    read -n1 -p "  Press key for menu item selection or press X to exit: " menuinput
+    read -n1 -p "  Press key for menu item selection or press Q to exit: " menuinput
 
     case $menuinput in
     1) configure_mac_privacy ;;
@@ -793,7 +793,7 @@ mac_menu() {
     3) secure_mac ;;
     4) revert_secure_mac ;;
     5) privacy_cleanup ;;
-    x | X)
+    q | Q)
         echo -e "\n\n Exiting enforce_mac.sh - Happy computing! \n"
         exit_screen
         ;;
