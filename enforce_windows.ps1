@@ -10,11 +10,8 @@
 # revision var
 $revision = "0.0.1"
 
-# TODO, Add argument based help
 param (
-    [string]$menu = "http://defaultserver",
-    [Parameter(Mandatory = $true)][string]$username,
-    [string]$password = $( Read-Host "Input password, please" )
+    [string]$choice
 )
 
 # function check_for_admin {
@@ -68,32 +65,32 @@ function win_menu {
 }
 
 function win_help {
-    Write-Host "`n valid command line arguements are : `n `n --harden        run all security and privacy enforcements `n" `
-        "--revert        revert all enforcements `n --cleanup         remove all your bash history,os log and reset privacy settings" `
+    Write-Host "`n valid command line arguements are : `n `n harden        run all security and privacy enforcements `n" `
+        "revert        revert all enforcements `n cleanup         remove all your bash history,os log and reset privacy settings" `
         return
 }
 
 function check_arg {
-    if ("$1" -eq "") {
+    if ("$choice" -eq "") {
         win_menu
     }
     else {
-        switch ($1) {
-            --menu {
+        switch ($choice) {
+            "menu" {
                 win_menu
             }
-            --help {
+            "help" {
                 win_help
             }
-            --harden {
+            "harden" {
                 # harden_win
                 "This function has not been written yet"
             }
-            --revert {
+            "revert" {
                 # revert_hardening
                 "This function has not been written yet"
             }
-            --cleanup {
+            "cleanup" {
                 # privacy_cleanup
                 "This function has not been written yet"
             }
@@ -104,4 +101,4 @@ function check_arg {
     }
 }
 
-check_arg "$1"
+check_arg "$choice"
