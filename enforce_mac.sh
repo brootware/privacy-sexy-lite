@@ -17,7 +17,7 @@ check_for_root() {
     fi
 }
 
-privacy_cleanup() {
+nuke_history() {
     # ----------------------------------------------------------
     # --------------------Clear bash history--------------------
     # ----------------------------------------------------------
@@ -594,110 +594,162 @@ privacy_cleanup() {
 
 secure_mac() {
     # ----------------------------------------------------------
-    # --Disable sharing of local printers with other computers--
-    # ----------------------------------------------------------
-    echo -e '\n--- Disable sharing of local printers with other computers'
-    cupsctl --no-share-printers
-    # ----------------------------------------------------------
-
-    # ----------------------------------------------------------
-    # -Disable printing from any address including the Internet-
-    # ----------------------------------------------------------
-    echo -e '\n--- Disable printing from any address including the Internet'
-    cupsctl --no-remote-any
-    # ----------------------------------------------------------
-
-    # ----------------------------------------------------------
-    # ----------Disable remote printer administration-----------
-    # ----------------------------------------------------------
-    echo -e '\n--- Disable remote printer administration'
-    cupsctl --no-remote-admin
-    # ----------------------------------------------------------
-
-    # ----------------------------------------------------------
     # ------------------Disable Captive portal------------------
     # ----------------------------------------------------------
-    echo -e '\n--- Disable Captive portal'
+    echo '--- Disable Captive portal'
     sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.captive.control.plist Active -bool false
+    # ----------------------------------------------------------
+
+    # ----------------------------------------------------------
+    # ---------------Enable application firewall----------------
+    # ----------------------------------------------------------
+    echo '--- Enable application firewall'
+    /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
+    sudo defaults write /Library/Preferences/com.apple.alf globalstate -bool true
+    defaults write com.apple.security.firewall EnableFirewall -bool true
+    # ----------------------------------------------------------
+
+    # ----------------------------------------------------------
+    # -----------------Turn on firewall logging-----------------
+    # ----------------------------------------------------------
+    echo '--- Turn on firewall logging'
+    /usr/libexec/ApplicationFirewall/socketfilterfw --setloggingmode on
+    sudo defaults write /Library/Preferences/com.apple.alf loggingenabled -bool true
+    # ----------------------------------------------------------
+
+    # ----------------------------------------------------------
+    # -------------------Turn on stealth mode-------------------
+    # ----------------------------------------------------------
+    echo '--- Turn on stealth mode'
+    /usr/libexec/ApplicationFirewall/socketfilterfw --setstealthmode on
+    sudo defaults write /Library/Preferences/com.apple.alf stealthenabled -bool true
+    defaults write com.apple.security.firewall EnableStealthMode -bool true
     # ----------------------------------------------------------
 
     # ----------------------------------------------------------
     # -Disable remote login (incoming SSH and SFTP connections)-
     # ----------------------------------------------------------
-    echo -e '\n--- Disable remote login (incoming SSH and SFTP connections)'
+    echo '--- Disable remote login (incoming SSH and SFTP connections)'
     echo 'yes' | sudo systemsetup -setremotelogin off
     # ----------------------------------------------------------
 
     # ----------------------------------------------------------
     # --------------Disable insecure TFTP service---------------
     # ----------------------------------------------------------
-    echo -e '\n--- Disable insecure TFTP service'
+    echo '--- Disable insecure TFTP service'
     sudo launchctl disable 'system/com.apple.tftpd'
     # ----------------------------------------------------------
 
     # ----------------------------------------------------------
     # ----------Disable Bonjour multicast advertising-----------
     # ----------------------------------------------------------
-    echo -e '\n--- Disable Bonjour multicast advertising'
+    echo '--- Disable Bonjour multicast advertising'
     sudo defaults write /Library/Preferences/com.apple.mDNSResponder.plist NoMulticastAdvertisements -bool true
     # ----------------------------------------------------------
 
     # ----------------------------------------------------------
     # -------------Disable insecure telnet protocol-------------
     # ----------------------------------------------------------
-    echo -e '\n--- Disable insecure telnet protocol'
+    echo '--- Disable insecure telnet protocol'
     sudo launchctl disable system/com.apple.telnetd
+    # ----------------------------------------------------------
+
+    # ----------------------------------------------------------
+    # --Disable sharing of local printers with other computers--
+    # ----------------------------------------------------------
+    echo '--- Disable sharing of local printers with other computers'
+    cupsctl --no-share-printers
+    # ----------------------------------------------------------
+
+    # ----------------------------------------------------------
+    # -Disable printing from any address including the Internet-
+    # ----------------------------------------------------------
+    echo '--- Disable printing from any address including the Internet'
+    cupsctl --no-remote-any
+    # ----------------------------------------------------------
+
+    # ----------------------------------------------------------
+    # ----------Disable remote printer administration-----------
+    # ----------------------------------------------------------
+    echo '--- Disable remote printer administration'
+    cupsctl --no-remote-admin
     # ----------------------------------------------------------
 }
 
 revert_seure_mac() {
+    # ----------------------------------------------------------
+    # -----------Enable application firewall (revert)-----------
+    # ----------------------------------------------------------
+    echo '--- Enable application firewall (revert)'
+    /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate off
+    sudo defaults write /Library/Preferences/com.apple.alf globalstate -bool false
+    defaults write com.apple.security.firewall EnableFirewall -bool false
+    # ----------------------------------------------------------
+
+    # ----------------------------------------------------------
+    # ------------Turn on firewall logging (revert)-------------
+    # ----------------------------------------------------------
+    echo '--- Turn on firewall logging (revert)'
+    /usr/libexec/ApplicationFirewall/socketfilterfw --setloggingmode off
+    sudo defaults write /Library/Preferences/com.apple.alf loggingenabled -bool false
+    # ----------------------------------------------------------
+
+    # ----------------------------------------------------------
+    # --------------Turn on stealth mode (revert)---------------
+    # ----------------------------------------------------------
+    echo '--- Turn on stealth mode (revert)'
+    /usr/libexec/ApplicationFirewall/socketfilterfw --setstealthmode off
+    sudo defaults write /Library/Preferences/com.apple.alf stealthenabled -bool false
+    defaults write com.apple.security.firewall EnableStealthMode -bool false
+    # ----------------------------------------------------------
+
     # Disable remote login (incoming SSH and SFTP connections) (revert)
-    echo -e '\n--- Disable remote login (incoming SSH and SFTP connections) (revert)'
+    echo '--- Disable remote login (incoming SSH and SFTP connections) (revert)'
     sudo systemsetup -setremotelogin on
     # ----------------------------------------------------------
 
     # ----------------------------------------------------------
     # ----------Disable insecure TFTP service (revert)----------
     # ----------------------------------------------------------
-    echo -e '\n--- Disable insecure TFTP service (revert)'
+    echo '--- Disable insecure TFTP service (revert)'
     sudo launchctl enable 'system/com.apple.tftpd'
     # ----------------------------------------------------------
 
     # ----------------------------------------------------------
     # ------Disable Bonjour multicast advertising (revert)------
     # ----------------------------------------------------------
-    echo -e '\n--- Disable Bonjour multicast advertising (revert)'
+    echo '--- Disable Bonjour multicast advertising (revert)'
     sudo defaults write /Library/Preferences/com.apple.mDNSResponder.plist NoMulticastAdvertisements -bool false
     # ----------------------------------------------------------
 
     # ----------------------------------------------------------
     # --------Disable insecure telnet protocol (revert)---------
     # ----------------------------------------------------------
-    echo -e '\n--- Disable insecure telnet protocol (revert)'
+    echo '--- Disable insecure telnet protocol (revert)'
     sudo launchctl enable system/com.apple.telnetd
     # ----------------------------------------------------------
 
     # Disable sharing of local printers with other computers (revert)
-    echo -e '\n--- Disable sharing of local printers with other computers (revert)'
+    echo '--- Disable sharing of local printers with other computers (revert)'
     cupsctl --share-printers
     # ----------------------------------------------------------
 
     # Disable printing from any address including the Internet (revert)
-    echo -e '\n--- Disable printing from any address including the Internet (revert)'
+    echo '--- Disable printing from any address including the Internet (revert)'
     cupsctl --remote-any
     # ----------------------------------------------------------
 
     # ----------------------------------------------------------
     # ------Disable remote printer administration (revert)------
     # ----------------------------------------------------------
-    echo -e '\n--- Disable remote printer administration (revert)'
+    echo '--- Disable remote printer administration (revert)'
     cupsctl --remote-admin
     # ----------------------------------------------------------
 
     # ----------------------------------------------------------
     # -------------Disable Captive portal (revert)--------------
     # ----------------------------------------------------------
-    echo -e '\n--- Disable Captive portal (revert)'
+    echo '--- Disable Captive portal (revert)'
     sudo defaults delete /Library/Preferences/SystemConfiguration/com.apple.captive.control.plist Active
     # ----------------------------------------------------------
 }
@@ -749,13 +801,210 @@ revert_configure_mac_privacy() {
     # ----------------------------------------------------------
 }
 
+configure_programs() {
+    # ----------------------------------------------------------
+    # ----------------Disable Firefox telemetry-----------------
+    # ----------------------------------------------------------
+    echo '--- Disable Firefox telemetry'
+    # Enable Firefox policies so the telemetry can be configured.
+    sudo defaults write /Library/Preferences/org.mozilla.firefox EnterprisePoliciesEnabled -bool TRUE
+    # Disable sending usage data
+    sudo defaults write /Library/Preferences/org.mozilla.firefox DisableTelemetry -bool TRUE
+    # ----------------------------------------------------------
+
+    # ----------------------------------------------------------
+    # ----Disable Microsoft Office diagnostics data sending-----
+    # ----------------------------------------------------------
+    echo '--- Disable Microsoft Office diagnostics data sending'
+    defaults write com.microsoft.office DiagnosticDataTypePreference -string ZeroDiagnosticData
+    # ----------------------------------------------------------
+
+    # ----------------------------------------------------------
+    # ---------Disable Homebrew user behavior analytics---------
+    # ----------------------------------------------------------
+    echo '--- Disable Homebrew user behavior analytics'
+    command='export HOMEBREW_NO_ANALYTICS=1'
+    declare -a profile_files=("$HOME/.bash_profile" "$HOME/.zprofile")
+    for profile_file in "${profile_files[@]}"; do
+        touch "$profile_file"
+        if ! grep -q "$command" "${profile_file}"; then
+            echo "$command" >>"$profile_file"
+            echo "[$profile_file] Configured"
+        else
+            echo "[$profile_file] No need for any action, already configured"
+        fi
+    done
+    # ----------------------------------------------------------
+
+    # ----------------------------------------------------------
+    # --------------Disable NET Core CLI telemetry--------------
+    # ----------------------------------------------------------
+    echo '--- Disable NET Core CLI telemetry'
+    command='export DOTNET_CLI_TELEMETRY_OPTOUT=1'
+    declare -a profile_files=("$HOME/.bash_profile" "$HOME/.zprofile")
+    for profile_file in "${profile_files[@]}"; do
+        touch "$profile_file"
+        if ! grep -q "$command" "${profile_file}"; then
+            echo "$command" >>"$profile_file"
+            echo "[$profile_file] Configured"
+        else
+            echo "[$profile_file] No need for any action, already configured"
+        fi
+    done
+    # ----------------------------------------------------------
+
+    # ----------------------------------------------------------
+    # ------------Disable PowerShell Core telemetry-------------
+    # ----------------------------------------------------------
+    echo '--- Disable PowerShell Core telemetry'
+    command='export POWERSHELL_TELEMETRY_OPTOUT=1'
+    declare -a profile_files=("$HOME/.bash_profile" "$HOME/.zprofile")
+    for profile_file in "${profile_files[@]}"; do
+        touch "$profile_file"
+        if ! grep -q "$command" "${profile_file}"; then
+            echo "$command" >>"$profile_file"
+            echo "[$profile_file] Configured"
+        else
+            echo "[$profile_file] No need for any action, already configured"
+        fi
+    done
+    # ----------------------------------------------------------
+}
+
+revert_configure_programs() {
+    # ----------------------------------------------------------
+    # ------------Disable Firefox telemetry (revert)------------
+    # ----------------------------------------------------------
+    echo '--- Disable Firefox telemetry (revert)'
+    sudo defaults delete /Library/Preferences/org.mozilla.firefox EnterprisePoliciesEnabled
+    sudo defaults delete /Library/Preferences/org.mozilla.firefox DisableTelemetry
+    # ----------------------------------------------------------
+
+    # Disable Microsoft Office diagnostics data sending (revert)
+    echo '--- Disable Microsoft Office diagnostics data sending (revert)'
+    defaults delete com.microsoft.office DiagnosticDataTypePreference
+    # ----------------------------------------------------------
+
+    # ----------------------------------------------------------
+    # ----Disable Homebrew user behavior analytics (revert)-----
+    # ----------------------------------------------------------
+    echo '--- Disable Homebrew user behavior analytics (revert)'
+    command='export HOMEBREW_NO_ANALYTICS=1'
+    declare -a profile_files=("$HOME/.bash_profile" "$HOME/.zprofile")
+    for profile_file in "${profile_files[@]}"; do
+        if grep -q "$command" "${profile_file}" 2>/dev/null; then
+            sed -i '' "/$command/d" "$profile_file"
+            echo "[$profile_file] Reverted configuration"
+        else
+            echo "[$profile_file] No need for any action, configuration does not exist"
+        fi
+    done
+    # ----------------------------------------------------------
+
+    # ----------------------------------------------------------
+    # ---------Disable NET Core CLI telemetry (revert)----------
+    # ----------------------------------------------------------
+    echo '--- Disable NET Core CLI telemetry (revert)'
+    command='export DOTNET_CLI_TELEMETRY_OPTOUT=1'
+    declare -a profile_files=("$HOME/.bash_profile" "$HOME/.zprofile")
+    for profile_file in "${profile_files[@]}"; do
+        if grep -q "$command" "${profile_file}" 2>/dev/null; then
+            sed -i '' "/$command/d" "$profile_file"
+            echo "[$profile_file] Reverted configuration"
+        else
+            echo "[$profile_file] No need for any action, configuration does not exist"
+        fi
+    done
+    # ----------------------------------------------------------
+
+    # ----------------------------------------------------------
+    # --------Disable PowerShell Core telemetry (revert)--------
+    # ----------------------------------------------------------
+    echo '--- Disable PowerShell Core telemetry (revert)'
+    command='export POWERSHELL_TELEMETRY_OPTOUT=1'
+    declare -a profile_files=("$HOME/.bash_profile" "$HOME/.zprofile")
+    for profile_file in "${profile_files[@]}"; do
+        if grep -q "$command" "${profile_file}" 2>/dev/null; then
+            sed -i '' "/$command/d" "$profile_file"
+            echo "[$profile_file] Reverted configuration"
+        else
+            echo "[$profile_file] No need for any action, configuration does not exist"
+        fi
+    done
+    # ----------------------------------------------------------
+}
+
+privacy_cleanup() {
+    # ----------------------------------------------------------
+    # ---------------------Clear DNS cache----------------------
+    # ----------------------------------------------------------
+    echo '--- Clear DNS cache'
+    sudo dscacheutil -flushcache
+    sudo killall -HUP mDNSResponder
+    # ----------------------------------------------------------
+
+    # ----------------------------------------------------------
+    # ------------------Purge inactive memory-------------------
+    # ----------------------------------------------------------
+    echo '--- Purge inactive memory'
+    sudo purge
+    # ----------------------------------------------------------
+
+    # ----------------------------------------------------------
+    # --------------------Clear bash history--------------------
+    # ----------------------------------------------------------
+    echo '--- Clear bash history'
+    rm -f ~/.bash_history
+    # ----------------------------------------------------------
+
+    # ----------------------------------------------------------
+    # --------------------Clear zsh history---------------------
+    # ----------------------------------------------------------
+    echo '--- Clear zsh history'
+    rm -f ~/.zsh_history
+    # ----------------------------------------------------------
+
+    # ----------------------------------------------------------
+    # --------------------Clear Adobe cache---------------------
+    # ----------------------------------------------------------
+    echo '--- Clear Adobe cache'
+    sudo rm -rfv ~/Library/Application\ Support/Adobe/Common/Media\ Cache\ Files/* &>/dev/null
+    # ----------------------------------------------------------
+
+    # ----------------------------------------------------------
+    # -------------------Clear Dropbox cache--------------------
+    # ----------------------------------------------------------
+    echo '--- Clear Dropbox cache'
+    if [ -d "/Users/${HOST}/Dropbox" ]; then
+        sudo rm -rfv ~/Dropbox/.dropbox.cache/* &>/dev/null
+    fi
+    # ----------------------------------------------------------
+
+    # ----------------------------------------------------------
+    # -----------Clear Google Drive file stream cache-----------
+    # ----------------------------------------------------------
+    echo '--- Clear Google Drive file stream cache'
+    killall "Google Drive File Stream"
+    rm -rfv ~/Library/Application\ Support/Google/DriveFS/[0-9a-zA-Z]*/content_cache &>/dev/null
+    # ----------------------------------------------------------
+
+    # ----------------------------------------------------------
+    # ------------------Clear iOS photo caches------------------
+    # ----------------------------------------------------------
+    echo '--- Clear iOS photo caches'
+    rm -rf ~/Pictures/iPhoto\ Library/iPod\ Photo\ Cache/*
+    # ----------------------------------------------------------
+}
+
 harden_mac() {
     configure_mac_privacy
+    configure_programs
     secure_mac
 }
 
 revert_hardening() {
     revert_configure_mac_privacy
+    revert_configure_programs
     revert_secure_mac
 }
 
@@ -774,19 +1023,25 @@ mac_menu() {
     echo -e "\n    Select an option from menu:                           Rev:$revision" # function call list
     echo -e "\n Key  Menu Option:             Description:"
     echo -e " ---  ------------             ------------"
-    echo "  1 - Configure mac privacy       Enforce privacy on your mac "                                                             # configure_mac_privacy
-    echo "  2 - Revert mac privacy config   Revert privacy config on your mac "                                                       # revert_configure_mac_privacy
-    echo "  3 - Secure your mac             Secure all the unused services on mac "                                                   # secure_mac
-    echo "  4 - Revert security configs     Revert all the security configs on mac"                                                   # revert_secure_mac
-    echo -e "  5 - Privacy cleanup             WARNING!!! This will remove all your bash history,os log and reset privacy settings\n" # privacy_cleanup
+    echo "  1 - Configure mac privacy       Enforce privacy on your mac "                                                              # configure_mac_privacy
+    echo "  2 - Revert mac privacy config   Revert privacy config on your mac "                                                        # revert_configure_mac_privacy
+    echo "  3 - Configure programs          Enforce 3rd party programs privacy on your mac "                                           # configure_programs
+    echo "  4 - Revert Programs config      Revert 3rd party programs privacy CONFIG on your mac "                                     # revert_configure_programs
+    echo "  5 - Secure your mac             Secure all the unused services on mac "                                                    # secure_mac
+    echo "  6 - Revert security configs     Revert all the security configs on mac"                                                    # revert_secure_mac
+    echo "  7 - Lite privacy cleanup        Small privacy clean up"                                                                    # privacy_cleanup
+    echo -e "  8 - Nuke history                 WARNING!!! This will remove all your bash history,os log and reset privacy settings\n" # nuke_history
     read -n1 -p "  Press key for menu item selection or press Q to exit: " menuinput
 
     case $menuinput in
     1) configure_mac_privacy ;;
     2) revert_configure_mac_privacy ;;
-    3) secure_mac ;;
-    4) revert_secure_mac ;;
-    5) privacy_cleanup ;;
+    3) configure_programs ;;
+    4) revert_configure_programs ;;
+    5) secure_mac ;;
+    6) revert_secure_mac ;;
+    7) privacy_cleanup ;;
+    8) nuke_history ;;
     q | Q)
         echo -e "\n\n Exiting enforce_mac.sh - Happy computing! \n"
         exit_screen
@@ -797,9 +1052,11 @@ mac_menu() {
 
 mac_help() {
     # do not edit this echo statement, spacing has been fixed and is correct for display in the terminal
-    echo -e "\n valid command line arguements are : \n \n --harden        run all security and privacy enforcements \n" \
-        "--revert        revert all enforcements \n --cleanup       remove all your bash history,os log and reset privacy settings" \
-        exit
+    echo -e "\n valid command line arguements are : \n \n --menu          brings you to main menu of the program \n" \
+        "--help          shows help menu for arguments \n --harden        run all security and privacy enforcements\n" \
+        "--revert        revert all enforcements \n --cleanup       remove dns,bash,dropbox,ios photo caches\n" \
+        "--nuke          remove all your bash history,os log and reset privacy settings"
+    exit
 }
 
 check_arg() {
@@ -812,6 +1069,7 @@ check_arg() {
         --harden) harden_mac ;;
         --revert) revert_hardening ;;
         --cleanup) privacy_cleanup ;;
+        --nuke) nuke_history ;;
         *)
             mac_help
             exit 0
