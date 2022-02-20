@@ -14,10 +14,6 @@ check_for_root() {
     if [ "$EUID" -ne 0 ]; then
         echo -e "\n\n Script must be run with sudo ./enforce_mac.sh or as root \n"
         exit
-    else
-        # 02.19.21 - Kali 2021.1 + MSF 6.0.30-DEV Released
-        # Remove any prior hold on metasploit-framework at startup
-        eval apt-mark unhold metasploit-framework >/dev/null 2>&1
     fi
 }
 
@@ -775,9 +771,7 @@ exit_screen() {
 mac_menu() {
     clear
     echo -e "$asciiart"
-    echo -e "\n    Select an option from menu:                           Rev:$revision"
-    #    echo -e "\n     *** APT UPGRADE WILL ONLY BE CALLED FROM MENU OPTION 9 ***"
-    #    echo -e "\n  Menu Options:"                                                                    # function call list
+    echo -e "\n    Select an option from menu:                           Rev:$revision" # function call list
     echo -e "\n Key  Menu Option:             Description:"
     echo -e " ---  ------------             ------------"
     echo "  1 - Configure mac privacy       Enforce privacy on your mac "                                                             # configure_mac_privacy
