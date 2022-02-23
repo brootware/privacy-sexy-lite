@@ -106,7 +106,7 @@ function win_menu {
     Write-Host "  7 - Lite privacy cleanup           Small privacy clean up"                                                                       # privacy_cleanup
     Write-Host "  8 - Remove bloatware               Remove pre-installed windows store apps"                                                      # remove_bloatware
     Write-Host "  9 - Revert bloatware               Revert removing some pre-installed windows store apps"                                        # revert_some_bloatware
-    Write-Host  "  0 - Nuke window                   WARNING!!! This will remove all your windows credentials,os log and reset privacy settings\n"        # nuke_window
+    Write-Host  "  0 - Nuke window                    WARNING!!! This will remove all your windows credentials,os log and reset privacy settings\n"        # nuke_window
     Write-Host "  `nPress key for menu item selection or press Q to exit "
     $selection = ([System.Console]::ReadKey(("NoEcho"))).KeyChar
     
