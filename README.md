@@ -30,32 +30,31 @@ sudo ./enforce_mac.sh --help
 
 ## What's included in Mac?
 
-1. **Secure Mac**
-    1. Disable remote login
-    2. Disable insecure TFTP service
-    3. Disable Bonjour multicast advertising
-    4. Disable insecure telnet protocol
-    5. Disable sharing of local printers with other computers
-    6. Disable printing from any address including the Internet
-    7. Disable remote printer administration
-    8. Disable Captive portal
-2. **Configure Privacy**
-    1. Disable Remote Apple Events
-    2. Disable AirDrop file sharing
-    3. Opt-out from Siri data collection
-3. **Prviacy cleanup**
-    1. Clear Terminal History
-    2. Clear OS Logs
-    3. Clear Browser History
-    4. Clear 3rd party application data
-    5. IOS Cleanup
-    6. Reset Privacy Permissions for all applications
-    7. Clear cups printer job cache
-    8. Empty trash on all volumes
-    9. Clear system cache files
-    10. Clear XCode derived data and archives
-    11. Clear DNS Cache
-    12. Purge inactive memory
+- **Secure Mac**
+  - Disable remote login
+  - Disable insecure TFTP service
+  - Disable Bonjour multicast advertising
+  - Disable insecure telnet protocol
+  - Disable sharing of local printers with other computers
+  - Disable printing from any address including the Internet
+  - Disable remote printer administration
+  - Disable Captive portal
+- **Configure Privacy**
+  - Disable Remote Apple Events
+  - Disable AirDrop file sharing
+  - Opt-out from Siri data collection
+- **Prviacy cleanup**
+  - Clear Terminal History
+  - Clear Browser History
+  - Clear 3rd party application data
+  - IOS Cleanup
+  - Reset Privacy Permissions for all applications
+  - Clear cups printer job cache
+  - Empty trash on all volumes
+  - Clear system cache files
+  - Clear XCode derived data and archives
+  - Clear DNS Cache
+  - Purge inactive memory
 
 ## How to use for Windows
 
@@ -70,55 +69,55 @@ cd privacy-sexy-lite
 
 ## What's included in Windows?
 
-1. **Secure windows**
-    1. Disable unsafe features
-    2. Disable administrative shares
-    3. Disable autoplay and autorun
-    4. Disable remote assitance
-    5. Disable lock screen camera
-    6. Prevent the storage of lan manager hash of passwords
-    7. Disable windows installer always install with elevated privileges
-    8. Prevent WinRM from using basic authentication
-    9. Restrict anonymous enmeration of shares
-    10. Refuse less secure authentication
-    11. Enable structured exception handling overwrite protection
-    12. Block anonymous enumeration of SAM accounts
-    13. Restrict anonymous access to named pipes and shares
-    14. Disable the windows connect now wizard
-2. **Configure privacy**
-    1. Disable windows telemetry and data collection
-    2. Deny app access to personal information
-    3. Disable location access
-    4. Disable window search data collection
-    5. Disable targeted ads and marketing
-    6. Disable windows insider program
-    7. Disable cloud sync
-    8. Disable cloud speech recognition
-    9. Opt out from windows privacy consent
-    10. Disable windows feedback
-    11. Disable text and handwriting collection
-    12. Disable turn off sensors
-    13. Disable wi-fi sense
-    14. Disable inventory collector
-    15. Disable website access of language list
-    16. Disable auto downloading maps
-    17. Disable steps recorder
-    18. Disable game screen recording
-    19. Disable Windows DRM internet access
-    20. Disable feedback on write(Sending type info to Microsoft)
-    21. Disable activity feed
-    22. Disable media player data collection
-    23. Disable Xbox services
-    24. Disable Microsoft retail demo experience
+- **Secure windows**
+  - Disable unsafe features
+  - Disable administrative shares
+  - Disable autoplay and autorun
+  - Disable remote assitance
+  - Disable lock screen camera
+  - Prevent the storage of lan manager hash of passwords
+  - Disable windows installer always install with elevated privileges
+  - Prevent WinRM from using basic authentication
+  - Restrict anonymous enmeration of shares
+  - Refuse less secure authentication
+  - Enable structured exception handling overwrite protection
+  - Block anonymous enumeration of SAM accounts
+  - Restrict anonymous access to named pipes and shares
+  - Disable the windows connect now wizard
+- **Configure privacy**
+  - Disable windows telemetry and data collection
+  - Deny app access to personal information
+  - Disable location access
+  - Disable window search data collection
+  - Disable targeted ads and marketing
+  - Disable windows insider program
+  - Disable cloud sync
+  - Disable cloud speech recognition
+  - Opt out from windows privacy consent
+  - Disable windows feedback
+  - Disable text and handwriting collection
+  - Disable turn off sensors
+  - Disable wi-fi sense
+  - Disable inventory collector
+  - Disable website access of language list
+  - Disable auto downloading maps
+  - Disable steps recorder
+  - Disable game screen recording
+  - Disable Windows DRM internet access
+  - Disable feedback on write(Sending type info to Microsoft)
+  - Disable activity feed
+  - Disable media player data collection
+  - Disable Xbox services
+  - Disable Microsoft retail demo experience
 
     *and many more....*
-3. **Privacy & bloatware cleanup**
-    1. Clear app, browser history
-    2. Clear windows logs and caches
-    3. Delete controversial Default0 User
-    4. Enable reset base in DISM component store
-    5. Remove Default apps associations
-    6. Clear (RESET) network data usage
-    7. Uninstall MSN(BING), Office, XBox, Cortana, Feedback hub, Windows maps app
-    8. Uninstall Microsoft advertising app, Network speed test app.
-    9. Uninstall holographic first run app, family safety/parental controls app, Windows feedback app, CBS Preview app
+- **Privacy & bloatware cleanup**
+  - Clear app, browser history
+  - Clear windows logs and caches
+  - Delete controversial Default- User
+  - Enable reset base in DISM component store
+  - Remove Default apps associations
+  - Clear (RESET) network data usage
+  - Uninstall MSN(BING), Office, XBox, Cortana, Feedback hub, Windows maps app
+  - Uninstall Microsoft advertising app, Network speed test app.
+  - Uninstall holographic first run app, family safety/parental controls app, Windows feedback app, CBS Preview app
