@@ -26,7 +26,7 @@ rm -rf privacy-sexy-lite
 git clone https://github.com/brootware/privacy-sexy-lite
 cd privacy-sexy-lite
 chmod +x enforce_mac.sh
-sudo ./enforce_mac.sh
+sudo ./enforce_mac.sh --help
 ```
 
 ## What's included in Mac?
@@ -63,10 +63,10 @@ sudo ./enforce_mac.sh
 Right click > Run Powershell As Administrator
 
 ```powershell
-rm -rf privacy-sexy-lite
+rm -Force privacy-sexy-lite
 git clone https://github.com/brootware/privacy-sexy-lite
 cd privacy-sexy-lite
-.\enforce_windows.ps1
+.\enforce_windows.ps1 help
 ```
 
 ## What's included in Windows?
