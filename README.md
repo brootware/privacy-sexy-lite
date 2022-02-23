@@ -111,6 +111,7 @@ cd privacy-sexy-lite
     22. Disable media player data collection
     23. Disable Xbox services
     24. Disable Microsoft retail demo experience
+
     *and many more....*
 3. **Privacy & bloatware cleanup**
     1. Clear app, browser history
