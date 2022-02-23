@@ -10,6 +10,14 @@ This tool is customized from original site [privacy.sexy](https://privacy.sexy) 
 
 > Standard Disclaimer: Author assumes no liability for any damage done on your machines.
 
+## Core Features
+
+- 💻 Cross platform. Both Windows and MacOS.
+- 🪶 Ultra light! No compiled binaries. Just plain old bash,batch and powershell scripts.
+- 🙅 Automated security and privacy hardening on your Operating System.
+- 🔁 Automated reversion of the security and privacy hardening.
+- 🧹 Automated privacy cleanups.
+
 ## How to use for Mac
 
 ```bash
