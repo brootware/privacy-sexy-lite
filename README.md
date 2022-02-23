@@ -50,7 +50,7 @@ sudo ./enforce_mac.sh --help
     4. Clear 3rd party application data
     5. IOS Cleanup
     6. Reset Privacy Permissions for all applications
-    7. Clear cups printer job acache
+    7. Clear cups printer job cache
     8. Empty trash on all volumes
     9. Clear system cache files
     10. Clear XCode derived data and archives
