@@ -50,14 +50,14 @@ mac_menu() {
     echo -e "\n    Select an option from menu:                           Rev:$revision" # function call list
     echo -e "\n Key  Menu Option:             Description:"
     echo -e " ---  ------------             ------------"
-    echo "  1 - Configure mac privacy       Enforce privacy on your mac "                                                              # configure_mac_privacy
-    echo "  2 - Revert mac privacy config   Revert privacy config on your mac "                                                        # revert_configure_mac_privacy
-    echo "  3 - Configure programs          Enforce 3rd party programs privacy on your mac "                                           # configure_programs
-    echo "  4 - Revert Programs config      Revert 3rd party programs privacy CONFIG on your mac "                                     # revert_configure_programs
-    echo "  5 - Secure your mac             Secure all the unused services on mac "                                                    # secure_mac
-    echo "  6 - Revert security configs     Revert all the security configs on mac"                                                    # revert_secure_mac
-    echo "  7 - Lite privacy cleanup        Small privacy clean up"                                                                    # privacy_cleanup
-    echo -e "  8 - Nuke history                 WARNING!!! This will remove all your bash history,os log and reset privacy settings\n" # nuke_history
+    echo "  1 - Configure mac privacy       Enforce privacy on your mac "                                                             # configure_mac_privacy
+    echo "  2 - Revert mac privacy config   Revert privacy config on your mac "                                                       # revert_configure_mac_privacy
+    echo "  3 - Configure programs          Enforce 3rd party programs privacy on your mac "                                          # configure_programs
+    echo "  4 - Revert Programs config      Revert 3rd party programs privacy CONFIG on your mac "                                    # revert_configure_programs
+    echo "  5 - Secure your mac             Secure all the unused services on mac "                                                   # secure_mac
+    echo "  6 - Revert security configs     Revert all the security configs on mac"                                                   # revert_secure_mac
+    echo "  7 - Lite privacy cleanup        Small privacy clean up"                                                                   # privacy_cleanup
+    echo -e "  8 - Nuke history                WARNING!!! This will remove all your bash history,os log and reset privacy settings\n" # nuke_history
     read -n1 -p "  Press key for menu item selection or press Q to exit: " menuinput
 
     case $menuinput in
