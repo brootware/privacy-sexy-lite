@@ -111,6 +111,7 @@ cd privacy-sexy-lite
   - Disable Microsoft retail demo experience
 
     *and many more....*
+
 - **Privacy & bloatware cleanup**
   - Clear app, browser history
   - Clear windows logs and caches
