@@ -1,7 +1,7 @@
 # Privacy-sexy-lite
 
 <p align="center">
-  <img width="300" height="300" src="./privacyascii.png" alt="Privacy is sexy!"/>
+  <src="./privacyascii.png" alt="Privacy is sexy!"/>
 </p>
 
 A lite CLI version of Open-source tool to enforce privacy & security best-practices on Windows and macOS. Originally a web app by [undergroundwires](https://github.com/undergroundwires). 🍑 🍆
