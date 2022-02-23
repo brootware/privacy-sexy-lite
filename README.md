@@ -1,17 +1,8 @@
 # Privacy-sexy-lite
 
-```console
-__________        .__                             _________                     
-\______   \_______|__|__  _______    ____ ___.__./   _____/ ____ ___  ______.__.
- |     ___/\_  __ \  \  \/ /\__  \ _/ ___<   |  |\_____  \_/ __ \\  \/  <   |  |
- |    |     |  | \/  |\   /  / __ \\  \___\___  |/        \  ___/ >    < \___  |
- |____|     |__|  |__| \_/  (____  /\___  > ____/_______  /\___  >__/\_ \/ ____|
-                                 \/     \/\/            \/     \/      \/\/     
-
-                    +-+-+-+-+-+-+-+ +-+-+ +-+-+-+-+-+-+-+-+
-                    |p|o|w|e|r|e|d| |b|y| |r|o|o|t|w|a|r|e|
-                    +-+-+-+-+-+-+-+ +-+-+ +-+-+-+-+-+-+-+-+
-```
+<p align="center">
+  <img width="300" height="300" src="./privacyascii.png" alt="Privacy is sexy!"/>
+</p>
 
 A lite CLI version of Open-source tool to enforce privacy & security best-practices on Windows and macOS. Originally a web app by [undergroundwires](https://github.com/undergroundwires). 🍑 🍆
 
