@@ -114,7 +114,7 @@ cd privacy-sexy-lite
 
 - **Privacy & bloatware cleanup**
   - Clear app, browser history
-  - Clear windows logs and caches
+  - Clear non essential windows logs and caches
   - Delete controversial Default- User
   - Enable reset base in DISM component store
   - Remove Default apps associations
