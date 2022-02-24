@@ -45,15 +45,18 @@ Steps to reproduce the behavior:
 - Virtualbox version: by running: `vboxmanage -v`
 - VMWare version: by checking on VMWare fusion GUI: [e.g. VMWare Fusion Player Version 12.2.1 (18811640]
 - Vagrant version: by running: `vagrant version` or `vagrant -v`
-- Ansible version: by running: `ansible --version`
-- Pip version: by running: `pip --version`
+- Power shell version: by running: `$PSVersionTable.PSVersion`
+
 
 ### Desktop
 
 <!-- Please complete the following information -->
-- OS: [e.g. macOS 10.15.6]
+- MacOS: [e.g. macOS 10.15.6] *by running:* `sw_vers -productVersion`
+- Windows: *by running:* `Get-ComputerInfo | select WindowsProductName, WindowsVersion, OsHardwareAbstractionLayer`
 - Terminal or Power-shell:
 
 ### Additional context
+
+<!-- Add any other context about the problem here. -->
 
 <!-- Add any other context about the problem here. -->
