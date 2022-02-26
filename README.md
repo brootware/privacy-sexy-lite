@@ -4,6 +4,8 @@
   <img src="./privacyascii.png" alt="Privacy is sexy!"/>
 </p>
 
+<img src="https://img.shields.io/badge/build-passing-bright"> <img src="https://img.shields.io/badge/release-v1.0.0-blue">
+
 A lite CLI version of Open-source tool to enforce privacy & security best-practices on Windows and MacOS. Originally a web app by [undergroundwires](https://github.com/undergroundwires). 🍑 🍆
 
 This tool is customized from original site [privacy.sexy](https://privacy.sexy) to fit privacy and security needs for my mac and windows VMs.
