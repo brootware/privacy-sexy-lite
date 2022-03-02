@@ -13,8 +13,8 @@ assignees: ''
 
 <!-- Please complete the following list of tasks, and then check it by changing the "[ ]" to "[x]" -->
 
-- [ ] I have read the [README](https://github.com/brootware/kali-up/blob/master/README.md) and know the correct effect of the functional design.
-- [ ] There are no similar reports on [existing issues](https://github.com/brootware/kali-up/issues?q=is%3Aissue) (including closed ones).
+- [ ] I have read the [README](https://github.com/brootware/privacy-sexy-lite/blob/master/README.md) and know the correct effect of the functional design.
+- [ ] There are no similar reports on [existing issues](https://github.com/brootware/privacy-sexy-lite/issues?q=is%3Aissue) (including closed ones).
 - [ ] I have tried to find the answer on [Google](https://google.com/) and [StackOverflow](https://stackoverflow.com/).
 - [ ] My question is based on the latest code of the `master` branch.
 

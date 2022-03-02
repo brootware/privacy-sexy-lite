@@ -13,8 +13,8 @@ assignees: ''
 
 <!-- Please complete the following list of tasks, and then check it by changing the "[ ]" to "[x]" -->
 
-- [ ] I have read the [README](https://github.com/brootware/kali-up/blob/master/README.md) and know the correct effect of the functional design.
-- [ ] There are no similar reports on [existing issues](https://github.com/brootware/kali-up/issues?q=is%3Aissue) (including closed ones).
+- [ ] I have read the [README](https://github.com/brootware/privacy-sexy-lite/blob/main/README.md) and know the correct effect of the functional design.
+- [ ] There are no similar reports on [existing issues](https://github.com/brootware/privacy-sexy-lite/issues?q=is%3Aissue) (including closed ones).
 - [ ] I found the bug on the latest code of the `master` branch.
 
 ## Describe the bug
@@ -46,7 +46,6 @@ Steps to reproduce the behavior:
 - VMWare version: by checking on VMWare fusion GUI: [e.g. VMWare Fusion Player Version 12.2.1 (18811640]
 - Vagrant version: by running: `vagrant version` or `vagrant -v`
 - Power shell version: by running: `$PSVersionTable.PSVersion`
-
 
 ### Desktop
 
