@@ -1,3 +1,4 @@
+.DS_Store
 # Ignoring sensitive files and directories.
 
 secret*.*
